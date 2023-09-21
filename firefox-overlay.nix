@@ -137,11 +137,6 @@ let
         '';
       };
 
-  # Convert The version number from "96.0a1" to 96 integer.
-  getMajorVersion = version:
-    with builtins;
-    fromJSON (head (match "([0-9]+)[.].*" version.version));
-
   wrapFirefoxCompat = { version, pkg }:
     let
       wrapper = super.wrapFirefox pkg {};
